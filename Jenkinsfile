@@ -11,7 +11,7 @@ pipeline {
                 echo 'Prepare'
                 dir('code/backend'){
                     sh 'npm install'
-                },
+                }
                 dir('code/frontend'){
                     sh 'npm install'
                 }
@@ -25,7 +25,7 @@ pipeline {
                 echo 'Build'
                   dir('code/backend'){
                     sh 'npm build'
-                },
+                }
                 dir('code/frontend'){
                     sh 'npm build'
                 }
@@ -39,7 +39,7 @@ pipeline {
                 echo 'Analyze'
                  dir('code/backend'){
                     sh 'npm lint'
-                },
+                }
                 dir('code/frontend'){
                     sh 'npm lint'
                 }
@@ -53,7 +53,7 @@ pipeline {
                 echo 'Test'
                  dir('code/backend'){
                     sh 'npm test'
-                },
+                }
                 dir('code/frontend'){
                     sh 'npm test'
                 }
