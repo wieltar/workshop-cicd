@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             agent {
-                docker { image 'node:alpine' },
+                docker { image 'node:alpine' }
             }
             steps {
                 echo 'Build',
@@ -61,10 +61,10 @@ pipeline {
         }
         stage('e2e Test') {
             steps {             
-                echo 'e2e Test',
-                sh 'docker-compose -f docker-compose.yml build',
-                sh 'docker-compose -f docker-compose.yml up -d',
-                sh 'docker-compose -f docker-compose-e2e.yml up -d frontend backend',
+                echo 'e2e Test'
+                sh 'docker-compose -f docker-compose.yml build'
+                sh 'docker-compose -f docker-compose.yml up -d'
+                sh 'docker-compose -f docker-compose-e2e.yml up -d frontend backend'
                 script {
                     sh 'docker-compose -f docker-compose-e2e.yml up e2e'
                     status_code = sh ( script: "docker inspect code_e2e_1 --format='{{.State.ExitCode}}'", returnStdout: true).trim();
