@@ -24,10 +24,10 @@ pipeline {
             steps {
                 echo 'Build'
                   dir('code/backend'){
-                    sh 'npm build'
+                    sh 'npm run build'
                 }
                 dir('code/frontend'){
-                    sh 'npm build'
+                    sh 'npm run build'
                 }
             }
         }
@@ -38,10 +38,10 @@ pipeline {
             steps {
                 echo 'Analyze'
                  dir('code/backend'){
-                    sh 'npm lint'
+                    sh 'npm run lint'
                 }
                 dir('code/frontend'){
-                    sh 'npm lint'
+                    sh 'npm run lint'
                 }
             }
         }
@@ -52,10 +52,10 @@ pipeline {
             steps {
                 echo 'Test'
                  dir('code/backend'){
-                    sh 'npm test'
+                    sh 'npm run test'
                 }
                 dir('code/frontend'){
-                    sh 'npm test'
+                    sh 'npm run test'
                 }
             }
         }
