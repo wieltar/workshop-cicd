@@ -14,7 +14,7 @@ pipeline {
                 },
                 dir('code/frontend'){
                     sh 'npm install'
-                },
+                }
             }
         }
         stage('Build') {
@@ -42,7 +42,7 @@ pipeline {
                 },
                 dir('code/frontend'){
                     sh 'npm lint'
-                },
+                }
             }
         }
         stage('Unit Test') {
@@ -56,7 +56,7 @@ pipeline {
                 },
                 dir('code/frontend'){
                     sh 'npm test'
-                },
+                }
             }
         }
         stage('e2e Test') {
