@@ -8,7 +8,7 @@ pipeline {
                 docker { image 'node:alpine' }
             }
             steps {
-                echo 'Prepare',
+                echo 'Prepare'
                 dir('code/backend'){
                     sh 'npm install'
                 },
@@ -22,7 +22,7 @@ pipeline {
                 docker { image 'node:alpine' }
             }
             steps {
-                echo 'Build',
+                echo 'Build'
                   dir('code/backend'){
                     sh 'npm build'
                 },
@@ -36,7 +36,7 @@ pipeline {
                 docker { image 'node:alpine' }
             }
             steps {
-                echo 'Analyze',
+                echo 'Analyze'
                  dir('code/backend'){
                     sh 'npm lint'
                 },
@@ -50,7 +50,7 @@ pipeline {
                 docker { image 'node:alpine' }
             }
             steps {
-                echo 'Test',
+                echo 'Test'
                  dir('code/backend'){
                     sh 'npm test'
                 },
@@ -75,7 +75,7 @@ pipeline {
             }
             post {
                 always {
-                    echo 'Cleanup',
+                    echo 'Cleanup'
                     sh 'docker-compose -f docker-compose-e2e.yml down --rmi=all -v'
                 }
             }
